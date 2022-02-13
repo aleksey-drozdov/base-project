@@ -1,2 +1,7 @@
-header 
-	a(href="#") link 
+include ../pug/mixins
+.hero
+    h1= heroSection.title
+    p= heroSection.subtitle
+    .wrap
+        each card in heroSection.cards
+            +Card(card.title, card.description, card.link, card.img, card.power)

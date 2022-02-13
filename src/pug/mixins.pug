@@ -1,0 +1,19 @@
+mixin Card(title, descr, link, logo= 'none', power)
+    .card 
+        .card__header 
+            h3.card__title= title
+            .card__logo= logo 
+        p.card__descr= descr
+        //- h1.card__power(class= power > 70 ? 'card__power-red' : 'card__power-green') Power #{power}
+        case true
+            when (power >=20 && power <= 50) || (power >=80 && power <= 100)
+                h1.card__power-red= power
+            when power === 100
+                h1.card__power-green= power
+            default
+                h1= power
+        //- if power > 70
+        //-     h1.card__power.card__power-red Power #{power}
+        //- else 
+        //-     h1.card__power.card__power-green Power #{power}
+        a.card__link(href= link) Read More 
